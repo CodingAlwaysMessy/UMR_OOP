@@ -13,13 +13,11 @@ public class StringUtil {
     public static String substring(String string, int startIndex, int endIndex) {
         if (string == null) { // case: null
             return null;
-        }
-
-        if (startIndex < 0 || startIndex >= endIndex) { // case: invalid starting index
+        } else if (string == "") {
             return "";
-        }
-
-        if (startIndex == endIndex - 1) { // termination
+        } else if (startIndex < 0 || startIndex >= endIndex) { // case: invalid starting index
+            return "";
+        } else if (startIndex == endIndex - 1) { // termination
             return "" + string.charAt(startIndex);
         } else { // Recursive step
             if (endIndex > string.length()) { // reconfigure endIndex if too long
